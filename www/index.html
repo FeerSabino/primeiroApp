@@ -23,7 +23,8 @@
         <div class="form-group">
         <input type="button" value="CE" class="btn btn-info col-2 form-control ml-1-5" id="limpar">
         <input type="button" value="C" class="btn btn-info col-2 form-control ml-4" id="limparCalc">
-        <input type="button" value="+" class="btn btn-info col-2 form-control ml-4" id="button">
+             <input type="button" value="+" class="btn btn-info col-2 form-control ml-4" id="button">
+        <input type="button" value="y²" class="btn btn-info col-2 form-control ml-4" id="elevar">
       </div>
         <div class="form-group">
         <input type="button" value="7" class="btn btn-info col-2 form-control ml-1-5" id="button">
@@ -44,7 +45,7 @@
         <input type="button" value="/" class="btn btn-info col-2 form-control ml-4" id="button">
       </div>
       <div class="form-group">
-        <input type="button" value="," class="btn btn-info col-2 form-control ml-1-5" id="button">
+        <input type="button" value="." class="btn btn-info col-2 form-control ml-1-5" id="button">
         <input type="button" value="0" class="btn btn-info col-2 form-control ml-4" id="button">
         <input type="button" value="=" class="btn btn-info col-5 form-control ml-4" id="igual">
       </div>
@@ -60,6 +61,15 @@ $( function(){
 
     $("input[id=limpar]").click( function(){
       $("#tela").val('');
+    });
+    $("input[id=igual]").click( function(){
+      var res = eval($("#tela").val());
+      $("#tela").val(res);
+    });
+    $("input[id=elevar]").click( function(){
+      var val = eval($("#tela").val());
+      var res = val*val;
+      $("#tela").val(res);
     });
 });
 
