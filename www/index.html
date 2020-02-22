@@ -7,50 +7,66 @@
   <script src="components/loader.js"></script>
   <script src="lib/jquery-3.4.1.min.js"></script>
   <script src="lib/js/bootstrap.min.js" ></script>
-  <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/css/bootstrap.css">
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
-<div class="container">
-  <div class="row no-gutters">
-    <div class="col-sm-3 jumbotron mt-10 p-4">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 bg-dark h100 p-0">
       <div class="form-group">
         <input type="hidden" class="form-control tela" id="painel">
       </div>
-      <div class="form-group">
-        <input type="text" class="form-control" id="tela">
+      <div class="form-group m-0">
+        <input type="text" class=" col-12 tela" id="tela">
       </div>
-
-        <div class="form-group">
-        <input type="button" value="CE" class="btn btn-info col-2 form-control ml-1-5" id="limpar">
-        <input type="button" value="C" class="btn btn-info col-2 form-control ml-4" id="limparCalc">
-             <input type="button" value="+" class="btn btn-info col-2 form-control ml-4 op">
-        <input type="button" value="y²" class="btn btn-info col-2 form-control ml-4" id="elevar">
+        <div class="form-group m-0">
+          <table>
+        <input type="button" value="π" class="col-3 h12" id="pi">
+        <input type="button" value="±" class="col-3 h12" id="invert">
+        <input type="button" value="√" class="col-3 h12" id="raiz">
+        <input type="button" value="<" class="col-3 h12 del">
+        </table>
       </div>
-        <div class="form-group">
-        <input type="button" value="7" class="btn btn-info col-2 form-control ml-1-5" id="button">
-        <input type="button" value="8" class="btn btn-info col-2 form-control ml-4" id="button">
-        <input type="button" value="9" class="btn btn-info col-2 form-control ml-4" id="button">
-        <input type="button" value="-" class="btn btn-info col-2 form-control ml-4 op">
+        <div class="form-group m-0">
+          <table>
+        <input type="button" value="CE" class="col-3 h12" id="limparCalc">
+        <input type="button" value="C" class="col-3 h12" id="limpar">
+        <input type="button" value="y²" class="col-3 h12" id="elevar">
+        <input type="button" value="+" class="col-3 op h12">
+        </table>
       </div>
-      <div class="form-group">
-        <input type="button" value="4" class="btn btn-info col-2 form-control ml-1-5" id="button">
-        <input type="button" value="5" class="btn btn-info col-2 form-control ml-4" id="button">
-        <input type="button" value="6" class="btn btn-info col-2 form-control ml-4" id="button">
-        <input type="button" value="*" class="btn btn-info col-2 form-control ml-4 op">
+        <div class="form-group m-0">
+          <table>
+        <input type="button" value="7" class="col-3 h12" id="button">
+        <input type="button" value="8" class="col-3 h12" id="button">
+        <input type="button" value="9" class="col-3 h12" id="button">
+        <input type="button" value="-" class="col-3 op h12">
+        </table>
       </div>
-      <div class="form-group">
-        <input type="button" value="3" class="btn btn-info col-2 form-control ml-1-5" id="button">
-        <input type="button" value="2" class="btn btn-info col-2 form-control ml-4" id="button">
-        <input type="button" value="1" class="btn btn-info col-2 form-control ml-4" id="button">
-        <input type="button" value="/" class="btn btn-info col-2 form-control ml-4 op">
+      <div class="form-group m-0">
+        <table>
+        <input type="button" value="4" class="col-3 h12" id="button">
+        <input type="button" value="5" class="col-3 h12" id="button">
+        <input type="button" value="6" class="col-3 h12" id="button">
+        <input type="button" value="*" class="col-3 op h12">
       </div>
-      <div class="form-group">
-        <input type="button" value="." class="btn btn-info col-2 form-control ml-1-5" id="button">
-        <input type="button" value="0" class="btn btn-info col-2 form-control ml-4" id="button">
-        <input type="button" value="=" class="btn btn-info col-5 form-control ml-4" id="igual">
+      <div class="form-group m-0">
+        <table>
+        <input type="button" value="3" class="col-3 h12" id="button">
+        <input type="button" value="2" class="col-3 h12" id="button">
+        <input type="button" value="1" class="col-3 h12" id="button">
+        <input type="button" value="/" class="col-3 op h12">
+        </table>
+      </div>
+      <div class="form-group m-0">
+        <table>
+        <input type="button" value="." class="col-3 h12" id="button">
+        <input type="button" value="0" class="col-3 h12" id="button">
+        <input type="button" value="=" class="col-6 h12" id="igual">
+        </table>
       </div>
     </div>
   </div>
@@ -60,25 +76,48 @@
 $( function(){
     $("input[id=button]").click( function(){
       $("#tela").val($("#tela").val() + $(this).val());
-      $("#painel").val($("#painel").val() + $(this).val());
     });
 
     $("input[id=limpar]").click( function(){
       $("#tela").val('');
       $("#painel").val('');
     });
+    $("input[id=limparCalc]").click( function(){
+      $("#tela").val('');
+    });
     $("input[id=igual]").click( function(){
+      $("#painel").val($("#painel").val() + $("#tela").val());
       var res = eval($("#painel").val());
       $("#tela").val(res);
     });
     $("input[id=elevar]").click( function(){
+       if($("#tela").val()!=""){
       var val = eval($("#tela").val());
       var res = val*val;
       $("#tela").val(res);
+       }
+    });
+    $("input[id=raiz]").click( function(){
+       if($("#tela").val()!=""){
+      var val = eval($("#tela").val());
+      var res = Math.sqrt(val);
+      $("#tela").val(res);
+       }
     });
     $(".op").click( function(){
-      $("#painel").val($("#painel").val() + $(this).val());
+      $("#painel").val($("#painel").val()+$("#tela").val() + $(this).val());
       $("#tela").val('');
+    });
+    $(".del").click( function(){
+      $("#tela").val($("#tela").val().substr(0, $("#tela").val().length-1));
+    });
+    $("#invert").click( function(){
+      var val = $("#tela").val();
+      var res = val*(-1);
+      $("#tela").val(res);
+    });
+    $("#pi").click( function(){
+      $("#tela").val($("#tela").val() + Math.PI);
     });
 });
 

@@ -5,5 +5,28 @@
   margin-top: 25vh;
 }
 .tela{
-  height: 6vh;
+  margin-top: -2.4vh;
+  height: 25vh;
+  font-size: 32pt;
+  text-align: right;
+  background: #353a40;
+  border:none;
+  color: white;
+}
+.h12{
+  height: 12.5vh;
+  font-weight: bold;
+  font-size: 18pt;
+  background: #c0c0c0;
+  border: 1px solid #353a40;
+  outline: none;
+}
+.bg-darkula{
+  background: #383838;
+}
+.op, #igual{
+  background: #fda504;
+}
+.h100{
+  height: 100vh;
 }
