@@ -21,10 +21,7 @@
   border: 1px solid #353a40;
   outline: none;
 }
-.bg-darkula{
-  background: #383838;
-}
-.op, #igual{
+.op, #igual,.tp{
   background: #fda504;
 }
 .h100{
